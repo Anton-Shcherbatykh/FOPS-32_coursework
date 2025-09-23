@@ -15,4 +15,15 @@ terraform_coursework -version
 ```bash
 sudo nano ~/.terraformrc
 ```
+```bash
+provider_installation {
+  network_mirror {
+    url = "https://terraform-mirror.yandexcloud.net/"
+    include = ["registry.terraform.io/*/*"]
+  }
+  direct {
+    exclude = ["registry.terraform.io/*/*"]
+  }
+}
+```
 ![alt text](Pictures/Pic1.jpg)
