@@ -33,3 +33,35 @@ provider_installation {
 ssh-keygen -t ed25519
 ```
 ![alt text](Pictures/Pic3.jpg)
+
+Создаю файл meta.yaml с данными пользователя на создаваемые ВМ.
+```sudo nano ~/meta.yaml```
+```bash
+#cloud_config
+ users:
+  - name: shcherbatykh
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh-authorized-keys:
+      - ssh-ed25519
+```
+![alt text](Pictures/Pic4.jpg)
+
+Создаю playbook Terraform c блоком провайдера.
+```sudo nano ~/main.tf```
+```bash
+terraform {
+  required_providers {
+    yandex = {
+      source = "yandex-cloud/yandex"
+    }
+  }
+  required_version = ">= 0.116.0"
+}
+
+provider "yandex" {
+  zone = "ru-central1-b"
+}
+```
+![alt text](Pictures/Pic5.jpg)
