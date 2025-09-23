@@ -60,3 +60,9 @@ terraform {
 }
 ```
 ![alt text](Pictures/Pic5.jpg)
+
+Инициализирую провайдера ```sudo terraform_coursework init```
+И получаю ошибку
+![alt text](Pictures/error_terraform_1.jpg)
+![alt text](Pictures/error_terraform_2.jpg)
+![alt text](Pictures/error_terraform_3.jpg)
