@@ -11,7 +11,7 @@ terraform_coursework -version
 ```
 ![alt text](Pictures/Pic2.jpg)
 
-Создаю файл ```bash.terraformrc``` и добавляю блок с источником, из которого будет устанавливаться провайдер.
+Создаю файл ```.terraformrc``` и добавляю блок с источником, из которого будет устанавливаться провайдер.
 ```bash
 sudo nano ~/.terraformrc
 ```
