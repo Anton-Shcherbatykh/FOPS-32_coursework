@@ -57,11 +57,6 @@ terraform {
       source = "yandex-cloud/yandex"
     }
   }
-  required_version = ">= 0.116.0"
-}
-
-provider "yandex" {
-  zone = "ru-central1-b"
 }
 ```
 ![alt text](Pictures/Pic5.jpg)
