@@ -57,6 +57,7 @@ terraform {
       source = "yandex-cloud/yandex"
     }
   }
+  required_version = ">= 0.13"
 }
 ```
 ![alt text](Pictures/Pic5.jpg)
