@@ -37,7 +37,7 @@ ssh-keygen -t ed25519
 Создаю файл meta.yaml с данными пользователя на создаваемые ВМ.
 ```sudo nano ~/meta.yaml```
 ```bash
-#cloud_config
+#cloud-config
  users:
   - name: shcherbatykh
     groups: sudo
@@ -61,8 +61,7 @@ terraform {
 ```
 ![alt text](Pictures/Pic5.jpg)
 
-Инициализирую провайдера ```sudo terraform_coursework init```
-И получаю ошибку
-![alt text](Pictures/error_terraform_1.jpg)
-![alt text](Pictures/error_terraform_2.jpg)
+Инициализирую провайдера ```terraform init```
+
+![alt text](Pictures/Pic6.jpg)
 
