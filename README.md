@@ -66,3 +66,4 @@ terraform {
 
 ![alt text](Pictures/Pic6.jpg)
 
+###Terraform готов к использованию.
