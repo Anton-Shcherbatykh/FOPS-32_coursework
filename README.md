@@ -64,3 +64,16 @@ terraform {
 ![alt text](Pictures/pic05.jpg)
 
 ### Terraform готов к использованию.
+
+### Установка и подготовка Ansible.
+
+Устанавливаю Ansible и проверяю версию.
+
+```bash
+apt install ansible
+ansible --version
+```
+![alt text](Pictures/pic06.jpg)
+
+Создаю полностью прокомментированный пример ```ansible.cfg``` и заменяю содержимое файла на необходимые опции. Файл прикреплю в основной части.
+
