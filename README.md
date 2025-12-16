@@ -73,10 +73,10 @@ terraform {
 apt install ansible
 ansible --version
 ```
-[alt text](Pictures/pic06.jpg)
+![alt text](Pictures/pic06.jpg)
 
 Создаю полностью прокомментированный пример ```ansible.cfg``` и заменяю содержимое файла на необходимые опции. Файл прикреплю отдельно.
 
-[alt text](Pictures/pic07.jpg)
+![alt text](Pictures/pic07.jpg)
 
 
