@@ -32,7 +32,7 @@ ssh-keygen -t ed25519
 ![alt text](Pictures/pic02.jpg)
 
 Создаю файл meta.yaml с данными пользователя на создаваемые ВМ.
-```sudo nano ~/meta.yaml```
+```sudo nano ./meta.yaml```
 ```bash
 #cloud-config
  users:
@@ -46,7 +46,7 @@ ssh-keygen -t ed25519
 ![alt text](Pictures/pic03.jpg)
 
 Создаю playbook Terraform c блоком провайдера.
-```sudo nano ~/main.tf```
+```sudo nano ./main.tf```
 ```bash
 terraform {
   required_providers {
@@ -84,3 +84,43 @@ ansible --version
 ```bash
 nano ./hosts
 ```
+---
+
+Заполнение конфигурационного файла terraform main.tf для выполнения задач дипломной работы.
+
+Ссылки на файлы terraform:
+
+
+По условиям задачи необходимо развернуть через terraform следующий ресурcы:
+**Сайт. Веб-сервера. Nginx.**
+Создать две ВМ в разных зонах, установить на них сервер nginx.
+Создать Target Group, включить в неё две созданные ВМ.
+Создать Backend Group, настроить backends на target group, ранее созданную. Настроить healthcheck на корень (/) и порт 80, протокол HTTP.
+Создать HTTP router. Путь указать — /, backend group — созданную ранее.
+Создать Application load balancer для распределения трафика на веб-сервера, созданные ранее. Указать HTTP router, созданный ранее, задать listener тип auto, порт 80.
+
+
+
+**Мониторинг. Zabbix. Zabbix-agent.**
+Создать ВМ, развернуть на ней Zabbix. На каждую ВМ установить Zabbix Agent, настроить агенты на отправление метрик в Zabbix.
+
+
+
+**Логи. Elasticsearch. Kibana. Filebeat.**
+Cоздать ВМ, развернуть на ней Elasticsearch. Установить Filebeat в ВМ к веб-серверам, настроить на отправку access.log, error.log nginx в Elasticsearch.
+Создать ВМ, развернуть на ней Kibana, сконфигурировать соединение с Elasticsearch.
+
+
+
+**Сеть.**
+Развернуть один VPC.
+Сервера web, Elasticsearch поместить в приватные подсети.
+Сервера Zabbix, Kibana, application load balancer определить в публичную подсеть.
+Настроить Security Groups соответствующих сервисов на входящий трафик только к нужным портам.
+Настроить ВМ с публичным адресом, в которой будет открыт только один порт — ssh. Эта вм будет реализовывать концепцию bastion host.
+
+
+**Резервное копирование.**
+Создать snapshot дисков всех ВМ.
+Ограничить время жизни snaphot в неделю.
+Сами snaphot настроить на ежедневное копирование.
