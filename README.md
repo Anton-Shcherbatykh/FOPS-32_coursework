@@ -80,3 +80,7 @@ ansible --version
 ![alt text](Pictures/pic07.jpg)
 
 Создаю файл ```hosts``` и добавляю в него начальные данные. Файл прикреплю отдельно.
+
+```bash
+nano ./hosts
+```
