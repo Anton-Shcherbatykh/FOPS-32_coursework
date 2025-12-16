@@ -11,7 +11,7 @@ terraform -version
 
 Создаю файл ```.terraformrc``` и добавляю блок с источником, из которого будет устанавливаться провайдер.
 ```bash
-sudo nano ~/.terraformrc
+sudo nano /.terraformrc
 ```
 ```bash
 provider_installation {
