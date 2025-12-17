@@ -29,7 +29,7 @@ provider_installation {
 
 Для файла с метаданными, ```meta.yaml```, необходим публичный SSH-ключ для доступа к ВМ. Для Yandex Cloud рекомендуется использовать алгоритм Ed25519. Ссылка: https://cloud.yandex.ru/ru/docs/glossary/ssh-keygen
 ```bash
-ssh-keygen -t ed25519
+ssh-keygen
 ```
 ![alt text](Pictures/pic02.jpg)
 
@@ -43,7 +43,7 @@ ssh-keygen -t ed25519
     shell: /bin/bash
     sudo: ['ALL=(ALL) NOPASSWD:ALL']
     ssh-authorized-keys:
-      - ssh-ed25519
+      - course-project
 ```
 ![alt text](Pictures/pic03.jpg)
 
@@ -92,6 +92,7 @@ nano ./hosts
 
 Ссылки на файлы terraform:
 
+[Файлы](files terraform)
 
 По условиям задачи необходимо развернуть через terraform следующий ресурcы:
 
