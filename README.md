@@ -214,30 +214,7 @@ ansible_ssh_common_args='-o ProxyCommand="ssh -W %h:%p -q shcherbatykh@158.160.1
 
 Ссылки на файлы ansible-playbook:
 
-playbook-nginx-web.yaml
+[playbook-nginx-web.yaml](
 
-playbook-zabbix.yaml
 
-playbook-zabbix-agent.yaml
 
-playbook-elasticsearch.yaml
-
-playbook-kibana.yaml
-
-playbook-filebeat.yaml
-
-playbook-filebeat2.yaml
-
-Ссылка на файл с сайтом:
-
-index.nginx-debian.html
-
-**Ссылки на конфигурационные файлы:**
-
-elasticsearch.yml
-
-kibana.yml
-
-filebeat.yml
-
-filebeat2.yml
