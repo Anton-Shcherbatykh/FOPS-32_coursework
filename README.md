@@ -167,7 +167,7 @@ terraform apply
 
 ---
 
-#### Заполнение конфигурационного файла ansible ansible.cfg и inventory hosts
+#### Заполнение конфигурационного файла ansible ```ansible.cfg``` и inventory ```hosts```
 
 ```ansible.cfg```. Раскоментировал и заполнил следующие строки.
 
