@@ -132,3 +132,27 @@ nano ./hosts
 - Создать snapshot дисков всех ВМ.
 - Ограничить время жизни snaphot в неделю.
 - Сами snaphot настроить на ежедневное копирование.
+
+---
+
+#### Проверка развернутых ресурсов в Yandex Cloud.
+
+![alt text](Pictures/pic09.jpg)
+![alt text](Pictures/pic010.jpg)
+![alt text](Pictures/pic011.jpg)
+![alt text](Pictures/pic012.jpg)
+![alt text](Pictures/pic013.jpg)
+![alt text](Pictures/pic014.jpg)
+![alt text](Pictures/pic015.jpg)
+![alt text](Pictures/pic016.jpg)
+![alt text](Pictures/pic017.jpg)
+![alt text](Pictures/pic018.jpg)
+![alt text](Pictures/pic019.jpg)
+![alt text](Pictures/pic020.jpg)
+![alt text](Pictures/pic021.jpg)
+![alt text](Pictures/pic022.jpg)
+![alt text](Pictures/pic023.jpg)
+![alt text](Pictures/pic024.jpg)
+
+
+  Все ресурсы через terraform развернуты и работают.
