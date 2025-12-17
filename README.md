@@ -92,7 +92,7 @@ nano ./hosts
 
 Ссылки на файлы terraform:
 
-[Файлы](files terraform)
+[Файлы](https://github.com/Anton-Shcherbatykh/FOPS-32_coursework/tree/main/files%20terraform)
 
 По условиям задачи необходимо развернуть через terraform следующий ресурcы:
 
