@@ -135,6 +135,17 @@ nano ./hosts
 
 ---
 
+#### Запуск terraform playbook.
+
+```bash
+terraform apply
+```
+Из-за неверно указанной при подготовке playbook зоны (не проверил, что на клауде зоны A, B и D) на "автомате" прописал в playbook зону C. Это вызвало ошибку при развёртывании. Скорректировал playbook и доразвернул всё корректно.
+
+![alt text](Pictures/pic021.jpg)
+![alt text](Pictures/pic022.jpg)
+![alt text](Pictures/pic023.jpg)
+
 #### Проверка развернутых ресурсов в Yandex Cloud.
 
 ![alt text](Pictures/pic09.jpg)
@@ -149,9 +160,6 @@ nano ./hosts
 ![alt text](Pictures/pic018.jpg)
 ![alt text](Pictures/pic019.jpg)
 ![alt text](Pictures/pic020.jpg)
-![alt text](Pictures/pic021.jpg)
-![alt text](Pictures/pic022.jpg)
-![alt text](Pictures/pic023.jpg)
 ![alt text](Pictures/pic024.jpg)
 
 
