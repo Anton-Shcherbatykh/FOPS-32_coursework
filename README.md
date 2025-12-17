@@ -163,5 +163,81 @@ terraform apply
 ![alt text](Pictures/pic025.jpg)
 ![alt text](Pictures/pic024.jpg)
 
+Все ресурсы через terraform развернуты и работают.
 
-  Все ресурсы через terraform развернуты и работают.
+---
+
+#### Заполнение конфигурационного файла ansible ansible.cfg и inventory hosts
+
+```ansible.cfg```. Раскоментировал и заполнил следующие строки.
+
+```bash
+inventory = /home/shcherbatykh/terraform/hosts
+host_key_checking = false
+remote_user = shcherbatykh
+private_key_file = /home/shcherbatykh/terraform/homework
+become = True
+```
+
+```hosts```. Настроил подключение к ресурсам через ProxyCommand.
+
+```bash
+[nginx-web]
+nginx-web-1
+nginx-web-2
+
+[zabbix]
+zabbix
+
+[elasticsearch]
+elasticsearch
+
+[kibana]
+kibana
+
+[nginx-web:vars]
+ansible_ssh_common_args='-o ProxyCommand="ssh -W %h:%p -q shcherbatykh@158.160.165.244"'
+
+[zabbix:vars]
+ansible_ssh_common_args='-o ProxyCommand="ssh -W %h:%p -q shcherbatykh@158.160.165.244"'
+
+[elasticsearch:vars]
+ansible_ssh_common_args='-o ProxyCommand="ssh -W %h:%p -q shcherbatykh@158.160.165.244"'
+
+[kibana:vars]
+ansible_ssh_common_args='-o ProxyCommand="ssh -W %h:%p -q shcherbatykh@158.160.165.244"'
+```
+
+---
+
+#### Ansible-playbooks для установки и конфигурирования необходимых сервисов.
+
+Ссылки на файлы ansible-playbook:
+
+playbook-nginx-web.yaml
+
+playbook-zabbix.yaml
+
+playbook-zabbix-agent.yaml
+
+playbook-elasticsearch.yaml
+
+playbook-kibana.yaml
+
+playbook-filebeat.yaml
+
+playbook-filebeat2.yaml
+
+Ссылка на файл с сайтом:
+
+index.nginx-debian.html
+
+**Ссылки на конфигурационные файлы:**
+
+elasticsearch.yml
+
+kibana.yml
+
+filebeat.yml
+
+filebeat2.yml
