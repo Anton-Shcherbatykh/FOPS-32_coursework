@@ -148,6 +148,7 @@ terraform apply
 
 #### Проверка развернутых ресурсов в Yandex Cloud.
 
+![alt text](Pictures/pic020.jpg)
 ![alt text](Pictures/pic09.jpg)
 ![alt text](Pictures/pic010.jpg)
 ![alt text](Pictures/pic011.jpg)
@@ -159,7 +160,7 @@ terraform apply
 ![alt text](Pictures/pic017.jpg)
 ![alt text](Pictures/pic018.jpg)
 ![alt text](Pictures/pic019.jpg)
-![alt text](Pictures/pic020.jpg)
+![alt text](Pictures/pic025.jpg)
 ![alt text](Pictures/pic024.jpg)
 
 
