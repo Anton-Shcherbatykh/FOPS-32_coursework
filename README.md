@@ -176,8 +176,8 @@ terraform apply
 inventory = /home/shcherbatykh/terraform/hosts
 host_key_checking = false
 remote_user = shcherbatykh
-private_key_file = /home/shcherbatykh/terraform/homework
-become = True
+private_key_file = /home/shcherbatykh/terraform/course-project
+become=True
 ```
 
 ```hosts```. Настроил подключение к ресурсам через ProxyCommand.
@@ -211,11 +211,14 @@ ansible_ssh_common_args='-o ProxyCommand="ssh -W %h:%p -q shcherbatykh@158.160.1
 
 ---
 
-#### Ansible-playbooks для установки и конфигурирования необходимых сервисов.
+#### Ошибка
 
-Ссылки на файлы ansible-playbook:
+При разворачивании серверов nginx столкнулся с проблемой.
+Ппрошу попомчь разобраться. На мой взгляд сделал всё корректно, но из-за того, что выполняю работу по ночам, мог что-то пропустить.
+Не получается при запуске ansible playbook зацепиться через Бастион.
 
-[playbook-nginx-web.yaml](
+![alt text](Pictures/pic026.jpg)
+
 
 
 
