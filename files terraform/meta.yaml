@@ -5,4 +5,4 @@
     shell: /bin/bash
     sudo: ['ALL=(ALL) NOPASSWD:ALL']
     ssh-authorized-keys:
-      - course-project roKUuYWuVaweDWPqlYB3p3eMBsBTtsfQtf+f8QhSLoo shcherbatykh@VM1
+      - course-project ------- shcherbatykh@VM1
