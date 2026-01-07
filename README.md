@@ -211,6 +211,7 @@ ansible_ssh_private_key_file=/home/shcherbatykh/.ssh/project1
 # Для подключения ко всем внутренним хостам используем ProxyJump через bastion
 ansible_ssh_common_args='-o ProxyJump=shcherbatykh@158.160.163.66 -o StrictHostKeyChecking=no'
 ```
+![alt text](Pictures/pic008.jpg)
 
 #### Мониторинг. Zabbix. Zabbix-agent.
 
