@@ -170,54 +170,51 @@ terraform apply
 
 #### Заполнение конфигурационного файла ansible ```ansible.cfg``` и inventory ```hosts```
 
-```ansible.cfg```. Раскоментировал и заполнил следующие строки.
+```ansible.cfg```. Указал следующие параметры.
 
 ```bash
-inventory = /home/shcherbatykh/terraform/hosts
-host_key_checking = false
-remote_user = shcherbatykh
-private_key_file = /home/shcherbatykh/terraform/course-project
-become=True
+[defaults]
+inventory          = /home/shcherbatykh/hosts
+host_key_checking  = False
+remote_user        = shcherbatykh
+
+[privilege_escalation]
+become             = True
 ```
 
-```hosts```. Настроил подключение к ресурсам через ProxyCommand.
+```hosts```. 
 
 ```bash
-[nginx-web]
-nginx-web-1
-nginx-web-2
+# ГРУППА для веб-серверов
+[nginx_web]
+nginx-web-1 ansible_host=192.168.60.5
+nginx-web-2 ansible_host=192.168.70.5
 
-[zabbix]
-zabbix
+# ГРУППА для бастион-хоста (для подключения извне)
+[bastion]
+bastion-host ansible_host=158.160.163.66
 
-[elasticsearch]
-elasticsearch
+# ГРУППЫ для остальных сервисов
+[monitoring]
+zabbix ansible_host=192.168.80.7
 
-[kibana]
-kibana
+[logging]
+elasticsearch ansible_host=192.168.60.7
+kibana ansible_host=192.168.80.8
 
-[nginx-web:vars]
-ansible_ssh_common_args='-o ProxyCommand="ssh -W %h:%p -q shcherbatykh@158.160.165.244"'
-
-[zabbix:vars]
-ansible_ssh_common_args='-o ProxyCommand="ssh -W %h:%p -q shcherbatykh@158.160.165.244"'
-
-[elasticsearch:vars]
-ansible_ssh_common_args='-o ProxyCommand="ssh -W %h:%p -q shcherbatykh@158.160.165.244"'
-
-[kibana:vars]
-ansible_ssh_common_args='-o ProxyCommand="ssh -W %h:%p -q shcherbatykh@158.160.165.244"'
+# ОБЩИЕ ПЕРЕМЕННЫЕ для ВСЕХ хостов (кроме bastion)
+[all:vars]
+# Подключаемся от имени пользователя, созданного в cloud-config
+ansible_user=shcherbatykh
+# Указываем ПРИВАТНЫЙ ключ (файл БЕЗ расширения .pub)
+ansible_ssh_private_key_file=/home/shcherbatykh/.ssh/project1
+# Для подключения ко всем внутренним хостам используем ProxyJump через bastion
+ansible_ssh_common_args='-o ProxyJump=shcherbatykh@158.160.163.66 -o StrictHostKeyChecking=no'
 ```
 
----
+#### Мониторинг. Zabbix. Zabbix-agent.
 
-#### Ошибка
 
-При разворачивании серверов nginx столкнулся с проблемой.
-Ппрошу попомчь разобраться. На мой взгляд сделал всё корректно, но из-за того, что выполняю работу по ночам, мог что-то пропустить.
-Не получается при запуске ansible playbook зацепиться через Бастион.
-
-![alt text](Pictures/pic026.jpg)
 
 
 
