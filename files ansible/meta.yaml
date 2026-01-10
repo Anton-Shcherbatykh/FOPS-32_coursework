@@ -1,0 +1,15 @@
+#cloud-config
+ users:
+  - name: shcherbatykh
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh-authorized-keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJtyJZ8ikx1lox5GnpsrrVKRU8lrH+eojvLmCo6WfJf5 shcherbatykh@VM2
+
+#Установка Nginx
+ packages:
+  - nginx
+ runcmd:
+  - [systemctl, enable, nginx]
+  - [systemctl, start, nginx]

@@ -1,0 +1,74 @@
+---
+- name: Install and configure Elasticsearch
+  hosts: elasticsearch
+  become: yes
+  vars:
+    es_version: "7.17.21" # Рекомендую использовать актуальную версию 8.x
+    es_config_file: "elasticsearch.yml"
+
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
+    - name: Install required system packages
+      apt:
+        name:
+          - apt-transport-https
+          - gnupg
+          - curl
+          - openjdk-11-jdk  # Elasticsearch 7.x требует Java 11
+        state: present
+
+    - name: Download Elasticsearch .deb package
+      ansible.builtin.get_url:
+        url: "https://mirror.yandex.ru/mirrors/elastic/7/pool/main/e/elasticsearch/elasticsearch-{{ es_version }}-amd64.deb"
+        dest: "/tmp/elasticsearch-{{ es_version }}-amd64.deb"
+        timeout: 60
+      register: download_es
+
+    - name: Install Elasticsearch from local .deb file
+      apt:
+        deb: "/tmp/elasticsearch-{{ es_version }}-amd64.deb"
+        state: present
+      when: download_es.changed
+
+    - name: Create Elasticsearch configuration directory if needed
+      file:
+        path: /etc/elasticsearch
+        state: directory
+        owner: root
+        group: elasticsearch
+        mode: '0750'
+
+    - name: Copy Elasticsearch configuration file
+      copy:
+        src: "{{ es_config_file }}"
+        dest: /etc/elasticsearch/elasticsearch.yml
+        owner: root
+        group: elasticsearch
+        mode: '0640'  # Стандартные права для конфига
+      notify:
+        - restart elasticsearch
+
+    - name: Configure JVM heap size (опционально)
+      lineinfile:
+        path: /etc/elasticsearch/jvm.options
+        regexp: '^-Xms'
+        line: '-Xms1g'
+      notify: restart elasticsearch
+
+    - name: Enable and start Elasticsearch service
+      systemd:
+        name: elasticsearch
+        enabled: yes
+        state: started
+        daemon_reload: yes
+
+  handlers:
+    - name: restart elasticsearch
+      systemd:
+        name: elasticsearch
+        state: restarted
+        daemon_reload: yes
