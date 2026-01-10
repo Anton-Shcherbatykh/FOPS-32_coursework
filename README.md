@@ -258,6 +258,18 @@ ansible_ssh_common_args='-o ProxyJump=shcherbatykh@158.160.163.66 -o StrictHostK
 ```
 ![alt text](Pictures/pic009.jpg)
 
+Установка elasticsearch завершилась неудачно.
+
+
+![alt text](Pictures/pic0010.jpg)
+
+С zabbix тоже возникла проблема проблема.
+
+
+![alt text](Pictures/pic0011.jpg)
+
+Прикладываю playbook, чтобы было видно, как я их составлял и по возможности, получить консультацию как корректно исправить их.
+
 
 
 
