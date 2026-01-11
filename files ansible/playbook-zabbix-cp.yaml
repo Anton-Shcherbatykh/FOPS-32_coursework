@@ -35,14 +35,16 @@
 
     - name: "5. Install Zabbix components"
       apt:
-        name:
-          - zabbix-server-pgsql
-          - zabbix-frontend-php
-          - php8.2-pgsql
-          - zabbix-apache-conf
-          - zabbix-sql-scripts
-          - zabbix-agent
-        state: present
+        name: "{{ packages }}"
+        state: installed
+      vars:
+        packages:
+           - zabbix-server-pgsql
+           - zabbix-frontend-php
+           - php8.2-pgsql
+           - zabbix-apache-conf
+           - zabbix-sql-scripts
+           - zabbix-agent
       notify: Restart Zabbix server
 
     - name: "6. Configure PHP timezone for Zabbix frontend"
