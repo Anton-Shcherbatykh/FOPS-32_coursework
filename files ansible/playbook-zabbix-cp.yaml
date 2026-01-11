@@ -3,11 +3,11 @@
   hosts: zabbix
   become: true
   vars:
-    zabbix_db_password: "your_secure_password_here"  # Измените на безопасный пароль!
+    zabbix_db_password: "----------"
     zabbix_db_name: "zabbix"
     zabbix_db_user: "zabbix"
-    php_timezone: "Europe/Moscow"  # Укажите свой часовой пояс
-
+    php_timezone: "Europe/Moscow"
+    
   tasks:
     - name: "1. Update apt cache"
       apt:
