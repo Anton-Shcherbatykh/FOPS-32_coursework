@@ -3,7 +3,7 @@
   hosts: elasticsearch
   become: yes
   vars:
-    es_version: "7.17.21" # Рекомендую использовать актуальную версию 8.x
+    es_version: "7.17.21" # Рекомендуется использовать актуальную версию 8.x, но остановлюсь на стабильной 7.х
     es_config_file: "elasticsearch.yml"
 
   tasks:
