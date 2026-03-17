@@ -34,7 +34,7 @@ ssh-keygen
 ![alt text](Pictures/pic02.jpg)
 
 Создаю файл meta.yaml с данными пользователя на создаваемые ВМ.
-```sudo nano ./meta.yaml```
+```sudo nano ~/meta.yaml```
 ```bash
 #cloud-config
  users:
