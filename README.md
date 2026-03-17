@@ -48,7 +48,7 @@ ssh-keygen
 ![alt text](Pictures/pic03.jpg)
 
 Создаю playbook Terraform c блоком провайдера.
-```sudo nano ./main.tf```
+```sudo nano ~/main.tf```
 ```bash
 terraform {
   required_providers {
